@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        # CUSTOMER
+        - id: ms-customer-sub
+          uri: lb://MS-CUSTOMER
+          predicates:
+            - Path=/api/customers/**
+
+
