@@ -1,7 +1,6 @@
 package com.example.ms_customers.exceptions;
 
 import com.example.ms_customers.dtos.ErrorResponseDTO;
-import com.example.ms_customers.exceptions.CustomApiException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -23,7 +22,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, ex.getStatus());
     }
 
-    // Aquí atrapamos cualquier otro error inesperado (NullPointer, etc.)
+    // Aquí atrapamos cualquier otro error inesperado
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponseDTO> handleGeneralException(Exception ex) {
         ErrorResponseDTO error = ErrorResponseDTO.builder()

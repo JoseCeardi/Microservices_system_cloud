@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CustomerRepository extends JpaRepository<CustomerEntity, Long> {
+    Boolean existsByRut(String rut);
+    CustomerEntity getCustomerByRut(String rut);
 }

@@ -24,4 +24,9 @@ public class CustomerController {
     public ResponseEntity<List<CustomerDTO>> getAllCustomers() {
         return ResponseEntity.ok(customerService.getAllCustomers());
     }
+
+    @GetMapping
+    public ResponseEntity<CustomerDTO> getCustomerByRut(@RequestParam String rut) {
+        return ResponseEntity.ok(customerService.getCustomerByRut(rut));
+    }
 }

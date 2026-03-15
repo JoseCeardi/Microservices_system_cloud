@@ -12,5 +12,4 @@ public class GenericKardexRequestDTO {
     private String description;
     private Integer quantity;
     private String userResponsible;
-    private String consecuencia;
 }
