@@ -11,4 +11,11 @@ spring:
           predicates:
             - Path=/api/customers/**
 
+        # KARDEX
+        - id: ms-kardex-route
+          uri: lb://MS-KARDEX
+          predicates:
+            - Path=/api/kardex/**
+
+
 

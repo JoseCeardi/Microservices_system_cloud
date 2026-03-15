@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CustomerDTO {
-    String rut;
-    String nombre;
-    String telefono;
-    String correo;
-    Boolean active;
+    private String rut;
+    private String nombre;
+    private String telefono;
+    private String correo;
+    private Boolean active;
 }

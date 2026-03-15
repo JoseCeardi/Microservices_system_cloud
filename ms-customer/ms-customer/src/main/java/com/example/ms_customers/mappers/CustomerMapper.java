@@ -8,35 +8,29 @@ import java.util.stream.Collectors;
 
 public class CustomerMapper {
 
-    // Constructor privado para evitar que alguien instancie esta clase (clase de utilidad)
-    private CustomerMapper() {}
-
-    public static CustomerDTO toDto(CustomerEntity entity) {
-        if (entity == null) return null;
-
-        CustomerDTO dto = new CustomerDTO();
-        dto.setRut(entity.getRut());
-        dto.setNombre(entity.getNombre());
-        dto.setTelefono(entity.getTelefono());
-        dto.setCorreo(entity.getCorreo());
-        dto.setActive(entity.getActive());
-        return dto;
-    }
-
     public static CustomerEntity toEntity(CustomerDTO dto) {
         if (dto == null) return null;
-
         CustomerEntity entity = new CustomerEntity();
         entity.setRut(dto.getRut());
         entity.setNombre(dto.getNombre());
-        entity.setTelefono(dto.getTelefono());
         entity.setCorreo(dto.getCorreo());
-        entity.setActive(dto.getActive());
+        entity.setTelefono(dto.getTelefono());
+        entity.setActive(dto.getActive() != null ? dto.getActive() : true);
         return entity;
     }
 
+    public static CustomerDTO toDto(CustomerEntity entity) {
+        if (entity == null) return null;
+        return new CustomerDTO(
+                entity.getRut(),
+                entity.getNombre(),
+                entity.getTelefono(),
+                entity.getCorreo(),
+                entity.getActive()
+        );
+    }
+
     public static List<CustomerDTO> toDtoList(List<CustomerEntity> entities) {
-        if (entities == null) return List.of();
         return entities.stream()
                 .map(CustomerMapper::toDto)
                 .collect(Collectors.toList());

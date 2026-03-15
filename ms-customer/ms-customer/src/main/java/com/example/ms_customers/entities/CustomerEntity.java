@@ -12,10 +12,10 @@ public class CustomerEntity {
     @Column(name = "id_customer", unique = true, nullable = false)
     private Long idCustomer;
 
-    @Column(name="rut")
+    @Column(name="rut", nullable = false, unique = true)
     private String rut;
 
-    @Column(name="nombre")
+    @Column(name="nombre", nullable = false)
     private String nombre;
 
     @Column(name="correo")
@@ -26,5 +26,4 @@ public class CustomerEntity {
 
     @Column(name="active")
     private Boolean active;
-
 }
