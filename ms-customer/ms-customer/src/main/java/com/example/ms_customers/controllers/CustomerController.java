@@ -25,7 +25,7 @@ public class CustomerController {
         return ResponseEntity.ok(customerService.getAllCustomers());
     }
 
-    @GetMapping
+    @GetMapping("/rut/{rut}")
     public ResponseEntity<CustomerDTO> getCustomerByRut(@RequestParam String rut) {
         return ResponseEntity.ok(customerService.getCustomerByRut(rut));
     }

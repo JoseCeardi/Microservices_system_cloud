@@ -1,9 +1,22 @@
 spring:
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
+      globalcors:
+        add-to-simple-url-handler-mapping: true # CRÍTICO: Para que funcione antes de las rutas
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+
       routes:
         # CUSTOMER
         - id: ms-customer-sub
@@ -16,6 +29,3 @@ spring:
           uri: lb://MS-KARDEX
           predicates:
             - Path=/api/kardex/**
-
-
-
